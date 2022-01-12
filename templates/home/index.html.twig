@@ -1,0 +1,257 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}accueil{% endblock %}
+
+{% block body %}
+
+
+
+<!--section soin-->
+    <section id="Soin">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Soins de cheveux</h3>
+                    <hr>
+                    <p>Tous les besoins chevelus peuvent être comblés grâce au shampoing HairCare fait maison. Les diverses formulations naturelles répondent aux différentes problématiques des cuirs chevelus : cheveux gras, cheveux secs, démangeaisons, cuirs chevelus irrités ou cheveux colorés, … Les ingrédients naturels utilisés prendront soin de votre chevelure sans l’agresser. Les matériaux entièrement biodégradables rendent ces soins parfaits pour les personnes allergiques à certains composants chimiques ou ayant le cuir chevelu sensible..</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <h5 class="mb-0">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                    Les Détails
+                                </button>
+                            </h5>
+                            </h3>
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    <strong>Nous partons de chaque individu pour créer une formule sur-mesure, à base d’actifs dont l’efficacité a été scientifiquement prouvée.</strong> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                    Encore des détails
+                                </button>
+                            </h3>
+                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                                <div class="accordion-body">
+                                    <strong>Nos formules sont préparées à la commande et élaborées autour d’ingrédients naturels, affranchies des substances chimiques controversées.</strong> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header" id="panelsStayOpen-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                    Plus de détails
+                                </button>
+                            </h3>
+                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                                <div class="accordion-body">
+                                    <strong>Nos packaging sont issus de matériaux 100% recyclés (RPET), nos formules biodégradables et notre procédé de production à la commande met un terme au gaspillage de produits finis.</strong> 
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section Trois Icones -->
+
+    <section id="icones">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                    <h3><i class="fab fa-envira"></i></h3>
+                    <p>Formules saines et efficaces.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3><i class="fas fa-dolly"></i></h3>
+                    <p>Frais de ports offerts </p>
+                </div>
+                <div class="col-md-4">
+                    <h3><i class="fas fa-award"></i></h3>
+                    <p>Fabriqué en France</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section premiere bannière image -->
+
+
+    <section id="ban1" class="py-2">
+
+
+        <div class="container pt-5 pb-5">
+            <h3 class="pb-3">Etes-vous prêt à commencer ?</h3>
+            <!-- disparait à md -->
+            <p class="text-dark d-none d-md-block">Une formule saine et juste pour vous </p>
+            <a href="#" class="btn btn-primary">Démarrez maitenant</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Portfolio -->
+    <section id="galerie">
+        <div class="container">
+            <h3 class="text-center h3Photos">Notre Objectif</h3>
+            <p class="text-center">Avoir des cheveux doux et soigeux</p>
+
+            <div class="row">
+                <div class="col  mb-3">
+                    <a> 
+                        <img src="../images/cheveux/cheveux.png" class="img-fluid col-mb-3" alt="...">
+                    </a>
+
+                    <a>
+                        <img src="../images/cheveux/epais1.png" class="img-fluid col-mb-3" alt="...">
+                    </a>
+
+                </div>
+                
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Section seconde bannière image -->
+
+
+    <section id="ban2" class="py-2">
+        <div class="container">
+
+            <div id="carouselContent" class="carousel slide" data-ride="carousel" data-interval="1000">
+
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active text-center p-4">
+                        <p class="font-italic">"Offrir une formule saine et propre n'est pas négociable"
+                        </p>
+                    </div>
+                    <div class="carousel-item text-center p-4">
+                        <p class="font-italic">"Offrir une formule saine et propre n'est pas négociable"
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Section Progress Bar -->
+
+    <section id="progress">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 competences">
+                    <h3>Avantage</h3>
+                    <hr>
+                    <p>le but d’un shampoing naturel bio est simplement de laver. Mais de laver sans abîmer, ce qui est moins évident que ça en à l’air  . Au contraire des shampoings chimiques pseudo-hydratants, nourrissants, 100-en-1 qui font les dégâts pour ensuite vous vendre toute la gamme de soins pour les réparer de façon superficielle. Le shampoing naturel bio doit laisser le cheveu brut et propre (sans enveloppe siliconée), prêt à absorber le sébum ou les soins apportés en extra.
+                    Comme vous n’avez plus à compenser pour les sulfates et les silicones de votre shampoing irritant, la quantité de soins dont a besoin vos cheveux va chuter. De plus, un cheveu siliconé est un cheveu qui n’absorbe pas ou moins les soins que l’on s’acharne à lui apporter. Avec un shampoing 100% naturel, une goutte d’huile sur les pointes suffit pour une chevelure normale. Les cheveux secs demanderont un masque hydratant/nourrissant régulièrement mais les soins naturels sont très efficaces..</p>
+                </div>
+
+
+                <div class="col-md-6 pt-1">
+                    <p class="m-0">une meilleure pousse de cheveux</p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                    <p class="m-0">beaucoup moins de lavages</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped " role="progressbar" style="width: 50%"
+                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                    <p class="m-0">des cheveux plus beaux, plus doux et en meilleure santé</p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75"
+                            aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                    <p class="m-0">un cuir chevelu rééquilibré</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped " role="progressbar" style="width: 100%"
+                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Rentrer en Contact -->
+
+    <section id="contact" class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Contactez-nous</h3>
+                    <p class="lead">Nos délais d’expédition sont de 7 jours ouvrés (hors week-end et jours fériés), le temps pour nous de préparer votre formule!</p>
+                    <form>
+                        <div class="input-group input-group-lg mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Nom">
+                        </div>
+
+                        <div class="input-group input-group-lg mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Email">
+                        </div>
+
+                        <div class="input-group input-group-lg mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </span>
+                            </div>
+                            <textarea class="form-control" placeholder="Message" rows="5"></textarea>
+                        </div>
+
+                        <input type="submit" value="Envoyer" class="btn btn-primary btn-block btn-lg">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block footer %}
+<footer  class="text-center p-4">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p>Tout Droits Réservés &copy;
+                    <span id="year"></span> BENALI Manel</p>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}

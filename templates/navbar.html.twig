@@ -1,0 +1,44 @@
+<header id="top">
+
+        <div class="container">
+
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" id="main-nav">
+                <div class="container">
+                    <a href="index.html" class="navbar-brand">HairCare</a><!--login-->
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"><!--boutton derouler-->
+                        <span class="navbar-toggler-icon"></span><!--icon-->
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse"><!--cible du boutton -->
+                        <ul class="navbar-nav ml-auto" id="liens"><!--liste de navigation avec margin left pour etre collé a droite-->
+                            <li class="nav-item mr-1"><!--item de la liste avec margin right-->
+                                <a href="{{ path('home') }}" class="nav-link">Acceuil</a>
+                            </li>
+                            <li class="nav-item mr-1"><!--item de la liste avec margin right-->
+                                <a href="{{ path('commande_index') }}" class="nav-link">commandes</a>
+                            </li>
+                            <li class="nav-item mr-1">
+                                <a href="{{ path('categorie_index') }}" class="nav-link">Catégories</a>
+                            </li>
+                            <li class="nav-item mr-1">
+                                <a href="{{ path('produit_index') }}" class="nav-link">Produits</a>
+                            </li>
+                            <li class="nav-item mr-1">
+                                <a href="{{ path('ingredient_index') }}" class="nav-link">Ingrédients</a>
+                            </li>
+                            <li class="nav-item mr-1">
+                                <a href="{{ path('panier') }}" class="nav-link">Panier</a>
+                            </li>
+                            <li class="nav-item mr-1">
+                                <a href="{{ path('contact') }}" class="nav-link">Contactez-nous</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="text-intro">
+                <h1>
+                    Shampoings 
+                </h1>
+        </div>
+    </header>

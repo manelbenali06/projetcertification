@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenu dans le service de payment{% endblock %}
+
+{% block javascripts %}<script src="https://js.stripe.com/v3/"></script>{% endblock %}
+
+{% block body %}
+<script>
+    (function() {
+        const stripe = Stripe('pk_test_51KEW8XB7xXakC0tTQxkcfSGWYxxKnKa7yWFGvH3AVZKkRbnN5uozkWSFBKiRVwfGDn0n44Dlvyd7QHGX51CbaeJY00T8VqqceB');
+        stripe.redirectToCheckout({
+            sessionId: "{{ sessionId }}"
+        });
+    })();
+</script>
+{% endblock %}
