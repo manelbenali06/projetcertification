@@ -77,7 +77,7 @@ class ProduitType extends AbstractType
 
 
 
-            ->add('ingredient', EntityType::class , [
+            ->add('ingredients', EntityType::class , [
             'class' => Ingredient::class ,
             'choice_label' => 'nom',
             'multiple' => true,
