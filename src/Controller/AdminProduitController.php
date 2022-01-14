@@ -7,6 +7,7 @@ use App\Form\ProduitType;
 use App\Repository\ProduitRepository;
 
 use Doctrine\Persistence\ManagerRegistry;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,7 +44,7 @@ class AdminProduitController extends AbstractController
             $this->addFlash('success', 'La produit a bien été ajoutée'); // génère un message flash
             return $this->redirectToRoute('admin_produit_index', [], Response::HTTP_SEE_OTHER);
         }    
-        return $this->renderForm('admin/produit/new.html.twig', [
+        return $this->renderForm('admin_produit/new.html.twig', [
             'produit' => $produit,
             'form' => $form, // création de la vue du formulaire et envoi à la vue (fichier)
         ]);
@@ -57,7 +58,46 @@ class AdminProduitController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'admin_produit_edit', methods: ['GET', 'POST'])]
+    #[Route('/edit/{id}', name: 'admin_produit_edit', methods: ['GET', 'POST'])]
+       public function edit(ProduitRepository $produitRepository, int $id, Request $request, ManagerRegistry $managerRegistry)
+    {
+        $produit = $produitRepository->find($id); 
+        $form = $this->createForm(ProduitType::class, $produit); 
+        $form->handleRequest($request);
+            // vérifier s'il y a une img2 dans le formulaire
+                // non : garde l'ancienne
+                // oui : récupérer le nom de l'ancienne img2
+                    // s'il y en a une => supprimer
+                    // sinon => ajout
+        if ($form->isSubmitted() && $form->isValid()) {
+            $infoImage = $form['image']->getData();
+            $nomOldImage = $produit->getImage(); 
+            if ($infoImage !== null) { 
+                $cheminOldImage = $this->getParameter('produit_pictures_directory') . '/' . $nomOldImage;//voir kernel service yamel
+                if (file_exists($cheminOldImage)) {
+                    unlink($cheminOldImage); // supprime l'ancienne Image
+                }
+                $nomImage = time() . '-1.' . $infoImage->guessExtension(); // reconstitue le nom de la nouvelle Image
+                $produit->setImage($nomImage); // définit le nom de l'Image de l'objet Ingredient
+                $infoImage->move($this->getParameter('produit_pictures_directory'), $nomImage); // upload
+            } else {
+                $produit->setImage($nomOldImage); // re-définit le nom de l'Image à mettre en bdd
+            }
+            
+            $manager = $managerRegistry->getManager();
+            $manager->persist($produit);
+            $manager->flush();
+            $this->addFlash('success', 'Le produit a bien été modifiée');
+            return $this->redirectToRoute('admin_produit_index');
+            
+        }
+        return $this->renderForm('admin_produit/edit.html.twig', [//renderForm ou createView()
+            'form' => $form,
+            'produit' => $produit,
+        ]);
+    }
+
+    #[Route('/delete/{id}', name: 'admin_produit_delete', methods: ['POST'])]
     public function delete(ProduitRepository $produitRepository, int $id,ManagerRegistry $managerRegistry)
     {
         $produit = $produitRepository->find($id);
@@ -73,7 +113,7 @@ class AdminProduitController extends AbstractController
         $manager = $managerRegistry->getManager();
         $manager->remove($produit);
         $manager->flush();
-        $this->addFlash('success', 'L\produit a bien été supprimée');
+        $this->addFlash('success', 'Le produit a bien été supprimé');
         return $this->redirectToRoute('admin_produit_index', [], Response::HTTP_SEE_OTHER);
     }
 }

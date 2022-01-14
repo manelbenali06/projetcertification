@@ -88,23 +88,23 @@ class AdminCategorieController extends AbstractController
             return $this->redirectToRoute('admin_categorie_index');
             
         }
-        return $this->renderForm('admin/categorie/edit.html.twig', [//renderForm ou createView()
+        return $this->renderForm('admin_categorie/edit.html.twig', [//renderForm ou createView()
             'form' => $form,
             'categorie' => $categorie,
         ]);
     }
     
 
-    #[Route('/admin/delete/{id}', name: 'admin_categorie_delete', methods: ['POST'])]
+    #[Route('/delete/{id}', name: 'admin_categorie_delete', methods: ['POST'])]
      public function delete(CategorieRepository $categorieRepository, int $id,ManagerRegistry $managerRegistry)
     {
         $categorie = $categorieRepository->find($id);
        
         // throw new \Exception('TODO: gérer la suppression des images du dossier img');
-        $images = $this->getParameter('categorie_pictures_directory') . '/' . $categorie->getImage();
+        $image = $this->getParameter('categorie_pictures_directory') . '/' . $categorie->getImage();
         
-        if ($categorie->getImage() && file_exists($images)) {
-            unlink($images);
+        if ($categorie->getImage() && file_exists($image)) {
+            unlink($image);
         }
         
         

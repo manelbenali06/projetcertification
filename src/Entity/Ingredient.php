@@ -2,10 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\IngredientRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+
+use App\Entity\Produit;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\IngredientRepository;
+
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: IngredientRepository::class)]
 class Ingredient
@@ -24,11 +27,16 @@ class Ingredient
     #[ORM\Column(type: 'string', length: 255)]
     private $image;
 
-    #[ORM\ManyToMany(targetEntity: Produit::class, mappedBy: 'ingredient')]
+    #[ORM\ManyToMany(targetEntity: Produit::class, inversedBy: 'ingredients')]
     private $produits;
+
+
+
 
     public function __construct()
     {
+       
+        $this->produit = new ArrayCollection();
         $this->produits = new ArrayCollection();
     }
 
@@ -79,11 +87,10 @@ class Ingredient
         return $this->produits;
     }
 
-    public function addProduits(Produit $produit): self
+    public function addProduit(Produit $produit): self
     {
         if (!$this->produits->contains($produit)) {
             $this->produits[] = $produit;
-            $produit->addIngredient($this);
         }
 
         return $this;
@@ -91,7 +98,7 @@ class Ingredient
 
     public function removeProduit(Produit $produit): self
     {
-        $this->produit->removeIngredient($this);
+        $this->produits->removeElement($produit);
 
         return $this;
     }

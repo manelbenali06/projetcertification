@@ -102,10 +102,10 @@ class CategorieController extends AbstractController
         $categorie = $categorieRepository->find($id);
        
         // throw new \Exception('TODO: gérer la suppression des images du dossier img');
-        $images = $this->getParameter('categorie_pictures_directory') . '/' . $categorie->getImage();
+        $image = $this->getParameter('categorie_pictures_directory') . '/' . $categorie->getImage();
         
-        if ($categorie->getImage() && file_exists($images)) {
-            unlink($images);
+        if ($categorie->getImage() && file_exists($image)) {
+            unlink($image);
         }
         
         

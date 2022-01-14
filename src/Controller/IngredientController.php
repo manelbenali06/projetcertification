@@ -41,7 +41,7 @@ class IngredientController extends AbstractController
             $manager->persist($ingredient); // dit à Doctrine qu'on va vouloir sauvegarder en bdd
             $manager->flush(); // exécute la requête
             $this->addFlash('success', 'L\ingredient a bien été ajoutée'); // génère un message flash
-            return $this->redirectToRoute('admin_ingredient_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('ingredient_index', [], Response::HTTP_SEE_OTHER);
         }    
         return $this->renderForm('ingredient/new.html.twig', [
             'ingredient' => $ingredient,
@@ -87,10 +87,10 @@ class IngredientController extends AbstractController
             $manager->persist($ingredient);
             $manager->flush();
             $this->addFlash('success', 'L\ingredient a bien été modifiée');
-            return $this->redirectToRoute('admin_ingredient_index');
+            return $this->redirectToRoute('ingredient_index');
             
         }
-        return $this->renderForm('admin/ingredient/edit.html.twig', [//renderForm ou createView()
+        return $this->renderForm('ingredient/edit.html.twig', [//renderForm ou createView()
             'form' => $form,
             'ingredient' => $ingredient,
         ]);

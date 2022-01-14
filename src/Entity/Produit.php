@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Categorie;
 
+
 use App\Entity\Ingredient;
 use App\Entity\Commentaire;
 use Doctrine\ORM\Mapping as ORM;
@@ -42,7 +43,11 @@ class Produit
     private $categorie;
 
     #[ORM\ManyToMany(targetEntity: Ingredient::class, mappedBy: 'produits')]
-    private $ingredient;
+    private $ingredients;
+
+
+
+   
 
     
  
@@ -50,7 +55,8 @@ class Produit
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
-        $this->ingredient = new ArrayCollection();
+      
+        $this->ingredients = new ArrayCollection();
      
      
     }
@@ -165,16 +171,16 @@ class Produit
     /**
      * @return Collection|Ingredient[]
      */
-    public function getIngredient(): Collection
+    public function getIngredients(): Collection
     {
-        return $this->ingredient;
+        return $this->ingredients;
     }
 
     public function addIngredient(Ingredient $ingredient): self
     {
-        if (!$this->ingredient->contains($ingredient)) {
-            $this->ingredient[] = $ingredient;
-           
+        if (!$this->ingredients->contains($ingredient)) {
+            $this->ingredients[] = $ingredient;
+            $ingredient->addProduit($this);
         }
 
         return $this;
@@ -183,13 +189,14 @@ class Produit
     public function removeIngredient(Ingredient $ingredient): self
     {
         if ($this->ingredients->removeElement($ingredient)) {
-            
-        return $this;
-            
+            $ingredient->removeProduit($this);
         }
 
-     
+        return $this;
     }
+
+    
+    
 
     
 }

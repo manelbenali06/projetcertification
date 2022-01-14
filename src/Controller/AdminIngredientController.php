@@ -43,7 +43,7 @@ class AdminIngredientController extends AbstractController
             $this->addFlash('success', 'L\ingredient a bien été ajoutée'); // génère un message flash
             return $this->redirectToRoute('admin_ingredient_index', [], Response::HTTP_SEE_OTHER);
         }    
-        return $this->renderForm('admin/ingredient/new.html.twig', [
+        return $this->renderForm('admin_ingredient/new.html.twig', [
             'ingredient' => $ingredient,
             'form' => $form, // création de la vue du formulaire et envoi à la vue (fichier)
         ]);
@@ -90,14 +90,14 @@ class AdminIngredientController extends AbstractController
             return $this->redirectToRoute('admin_ingredient_index');
             
         }
-        return $this->renderForm('admin/ingredient/edit.html.twig', [//renderForm ou createView()
+        return $this->renderForm('admin_ingredient/edit.html.twig', [//renderForm ou createView()
             'form' => $form,
             'ingredient' => $ingredient,
         ]);
     }
     
 
-    #[Route('/admin/delete/{id}', name: 'admin_ingredient_delete', methods: ['POST'])]
+    #[Route('/delete/{id}', name: 'admin_ingredient_delete', methods: ['POST'])]
      public function delete(IngredientRepository $ingredientRepository, int $id,ManagerRegistry $managerRegistry)
     {
         $ingredient = $ingredientRepository->find($id);
